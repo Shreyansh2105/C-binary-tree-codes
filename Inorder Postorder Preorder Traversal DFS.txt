@@ -1,0 +1,56 @@
+#INOREDR:
+
+vector<int> ans;
+    void inorderT(TreeNode* root)
+    {
+        if(root==NULL)
+            return;
+        inorderT(root->left);
+        ans.push_back(root->val);
+        inorderT(root->right);
+       
+    } 
+     vector<int> inorderTraversal(TreeNode* root)
+    {
+        inorderT(root);
+        return ans;
+    }
+};
+
+
+
+
+#POSTORDER:
+ 
+vector<int> ans;
+    void postorderT(TreeNode* root){
+        if(root==NULL) return;
+        postorderT(root->left);
+        postorderT(root->right);
+        ans.push_back(root->val);
+    }
+    vector<int> postorderTraversal(TreeNode* root) {
+        postorderT(root);
+        return ans;
+    }
+};
+
+
+
+
+#PREORDER:
+
+    vector<int> ans;
+    void preorderT(TreeNode* root) {
+        if(root==NULL)
+            return ;
+        ans.push_back(root->val);
+        preorderT(root->left);
+        preorderT(root->right);
+        
+    }
+    vector<int> preorderTraversal(TreeNode* root){
+        preorderT(root);
+        return ans;
+    }
+};
